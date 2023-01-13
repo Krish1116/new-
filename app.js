@@ -74,11 +74,11 @@
 // let second_item = document.querySelector('.list-group-item:nth-child(2)');
 // second_item.style.color = 'yellow';
 
-let second_item = document.querySelector('.list-group-item:nth-child(2)');
-second_item.style.backgroundColor = 'green';
+// let second_item = document.querySelector('.list-group-item:nth-child(2)');
+// second_item.style.backgroundColor = 'green';
 
-let third_item = document.querySelector('.list-group-item:nth-child(3)');
-third_item.style.visibility = 'hidden';
+// let third_item = document.querySelector('.list-group-item:nth-child(3)');
+// third_item.style.visibility = 'hidden';
 
 //queryselectorAll
 // let titles = document.querySelectorAll('.title');
@@ -95,3 +95,81 @@ third_item.style.visibility = 'hidden';
 // for(let i = 0; i < even.length; i++){
 //     even[i].style.backgroundColor = '#ccc';
 // }
+
+//------------------------------------------------------------------
+
+//TRAVERSING THE DOM//
+let itemList = document.querySelector('#items');
+//parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentNode.parentNode);
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+//parentElement 
+//parentElement and parentNode's most part is can be intarchangable
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentElement.parentNode);
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+//childNodes - it's present text node too
+//textnode represent the void space
+// console.log(itemList.childNodes);
+// console.log(itemList.children);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
+
+// //1stchild
+// console.log(itemList.firstChild);
+
+// //1stelementchild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello 1';
+
+//lasstchild
+// console.log(itemList.lastChild);
+
+// //lastelementchild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = 'Hello 1';
+
+//nextsibling
+// console.log(itemList.nextSibling);
+
+// //nextelement sibling
+// console.log(itemList.nextElementSibling);
+
+//previousSibling
+// console.log(itemList.previousSibling);
+// //priviousElementSibling
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color = 'red';
+
+//creatElement
+
+//creat a div
+let new_div = document.createElement('div');
+
+//add class
+new_div.className = 'hello';
+
+//add id
+new_div.id = 'hello1';
+
+//add attr
+new_div.setAttribute('title', 'hello div');
+
+//create text node
+let newDivText = document.createTextNode('Hello World');
+
+//add text to div
+new_div.appendChild(newDivText);
+
+let container = document.querySelector('header .container');
+let h1 = document.querySelector('header h1');
+
+console.log(new_div);
+
+new_div.style.fontSize = '30px';
+container.insertBefore(new_div, h1);
