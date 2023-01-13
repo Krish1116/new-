@@ -174,8 +174,8 @@
 // new_div.style.fontSize = '30px';
 // container.insertBefore(new_div, h1);
 
-
-// let x = document.getElementById('buttton').addEventListener('click', tres);
+//event//
+// let x = document.getElementById('button').addEventListener('click', tres);
 // console.log(x)
 
 // function tres(e){
@@ -186,71 +186,126 @@
     // console.log(e)
 
     // console.log(e.target);
+    // console.log(e.target.id);
+    // console.log(e.target.classList);
+
+    // let output = document.getElementById('output');
+    // output.innerHTML = '<h3>'+e.target.id+'</h3>'
+
+    // console.log(e.type);
+
+    // console.log(e.clientX);
+    // console.log(e.clientY);
+
+    // console.log(e.offsetX);
+    // console.log(e.offsetY);
+
+    // console.log(e.altKey)
+    // console.log(e.ctrlKey)
+    // console.log(e.shiftKey)
+
 // }
-var form = document.getElementById('addForm');
-var itemList = document.getElementById('items');
-var filter = document.getElementById('filter');
 
-// Form submit event
+// let x = document.getElementById('button');
+// let box = document.getElementById('box');
+// button.addEventListener('click', runEvent);
+// button.addEventListener('dblclick', runEvent);
+// button.addEventListener('mousedown', runEvent);
+// button.addEventListener('mouseup', runEvent);
+
+//MOUSEOVER - FOR ANY INNER ELEMENT
+//MOUSEENTER-ENTER ONLY GOING TO BE FOR THE ELEMENT ITSELF
+// box.addEventListener('mouseenter', runEvent);
+// box.addEventListener('mouseleave', runEvent);
+// box.addEventListener('mouseover', runEvent);
+// box.addEventListener('mouseout', runEvent);
+// box.addEventListener('mousemove', runEvent);
+
+// let itemInput = document.querySelector('input[type="text"]');
+// let form = document.querySelector('form');
+
+// itemInput.addEventListener('keydown', runEvent);
+
+// function runEvent(e){
+    // console.log('EVENT TYPE: '+e.type);
+
+    // output.innerHTML = '<h3>MouseX: '+e.offsetX+'</h3> <h3>MouseY: '+e.offsetY+'</h3>'
+
+    // document.body.style.backgroundColor = 'rgb('+e.offsetX+', '+e.offsetY+', 40)'
+// }
+
+let form = document.getElementById('addForm');
+let itemList = document.getElementById('items');
+let filter = document.getElementById('filter');
+//form submit event
 form.addEventListener('submit', addItem);
-// Delete event
+
+//delete event
 itemList.addEventListener('click', removeItem);
-// Filter event
-filter.addEventListener('keyup', filterItems);
 
-// Add item
+//filter event
+filter.addEventListener('click', filterItem);
+
+//add item
 function addItem(e){
-  e.preventDefault();
+    e.preventDefault();
 
-  // Get input value
-  var newItem = document.getElementById('item').value;
+    // console.log(1);
+    //get input value
+    let newItem = document.getElementById('item').value;
 
-  // Create new li element
-  var li = document.createElement('li');
-  // Add class
-  li.className = 'list-group-item';
-  // Add text node with input value
-  li.appendChild(document.createTextNode(newItem));
+    //create new li element
+    let li = document.createElement('li');
 
-  // Create del button element
-  var deleteBtn = document.createElement('button');
+    //add class
+    li.className = 'list-group-item';
+    
+    //add text node with input value
+    li.appendChild(document.createTextNode(newItem));
 
-  // Add classes to del button
-  deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+    
+    //create del button ele
+    let deleteBtn = document.createElement('button'); 
+    
+    //add classes to del button
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+    
+    //append text node
+    deleteBtn.appendChild(document.createTextNode('X'));
 
-  // Append text node
-  deleteBtn.appendChild(document.createTextNode('X'));
+    //append button to li
+    li.appendChild(deleteBtn);
 
-  // Append button to li
-  li.appendChild(deleteBtn);
-
-  // Append li to list
-  itemList.appendChild(li);
+    //append li to list
+    itemList.appendChild(li);
 }
 
-// Remove item
+//remove item
 function removeItem(e){
-  if(e.target.classList.contains('delete')){
-    if(confirm('Are You Sure?')){
-      var li = e.target.parentElement;
-      itemList.removeChild(li);
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are You Sure?')){
+            let li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
     }
-  }
 }
 
-// Filter Items
-function filterItems(e){
-  // convert text to lowercase
-  var text = e.target.value.toLowerCase();
-  // Get lis
-  var items = itemList.getElementsByTagName('li');
-  // Convert to an array
-  Array.from(items).forEach(function(item){
-    var itemName = item.firstChild.textContent;
-    if(itemName.toLowerCase().indexOf(text) != -1){
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
-  });
+//Filter Item
+function filterItem(e){
+    //convert text to lowercase
+    let text = e.target.value.toLowerCase();
+    // console.log(text);
+
+    //get list
+    let items = itemList.getElementsByTagName('li');
+    
+    //convert to an array
+    Array.from(items).forEach(function(item){
+        let itemName = item.firstChild.textContent;
+        if(itemName.toLowerCase().indexOf(text) !== -1){
+            item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    })
 }
