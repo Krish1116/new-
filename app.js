@@ -56,12 +56,42 @@
 // }
 
 //queryselector 
-let header = document.querySelector('#main-header');
-header.style.borderBottom = 'solid 4px #ccc';
+// let header = document.querySelector('#main-header');
+// header.style.borderBottom = 'solid 4px #ccc';
 
-let input = document.querySelector('input');
-input.value = 'Hello World';
+// let input = document.querySelector('input');
+// input.value = 'Hello World';
 
-let submit = document.querySelector('input[type="submit"]');
-submit.value = "SEND"
+// let submit = document.querySelector('input[type="submit"]');
+// submit.value = "SEND"
 
+// let item = document.querySelector('.list-group-item');
+// item.style.color = 'red';
+
+// let last_item = document.querySelector('.list-group-item:last-child');
+// last_item.style.color = 'blue';
+
+// let second_item = document.querySelector('.list-group-item:nth-child(2)');
+// second_item.style.color = 'yellow';
+
+let second_item = document.querySelector('.list-group-item:nth-child(2)');
+second_item.style.backgroundColor = 'green';
+
+let third_item = document.querySelector('.list-group-item:nth-child(3)');
+third_item.style.visibility = 'hidden';
+
+//queryselectorAll
+// let titles = document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent = 'Hello';
+
+// let odd = document.querySelectorAll('li:nth-child(odd)');
+// let even = document.querySelectorAll('li:nth-child(even)');
+
+// for(let i = 0; i < odd.length; i++){
+//     odd[i].style.backgroundColor = '#f4f4f4';
+// }
+
+// for(let i = 0; i < even.length; i++){
+//     even[i].style.backgroundColor = '#ccc';
+// }
